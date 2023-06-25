@@ -7,12 +7,13 @@
         <header>
             <h1><a href="/">Django Ola Blog</a></h1>
         </header>
-
-        <article>
-            <time>published on time</time>
-            <h2><a href="">My First post</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </article>
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date}}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
 
 
         <article>
